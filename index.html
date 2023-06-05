@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client | Virus Slayer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/virus.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <div id="game">
+            <!-- Home -->
+            <section id="home">
+                <div class="title">
+                    <img src="images/virus.png" width="150px" height="150px" alt="icon">
+                    <h3>Virus Slayer</h3>
+                </div>
+                <div class="instruction">
+                    <div class="inst">Instruction</div>
+                    <ol>
+                        <li>Input username and click play</li>
+                        <li>Destroy virus with DFJK key</li>
+                        <li>Reach Score</li>
+                    </ol>
+                </div>
+                <div id="userForm">
+                    <input type="text" class="username" placeholder="Input username" autofocus> <br>
+                    <button type="submit" class="submit" disabled>Play</button>
+                </div>
+            </section>
+            <!-- End Home -->
+
+
+            <!-- Countdown -->
+            <section id="countdown">
+                <div class="countTime"></div>
+            </section>
+            <!-- End Countdown -->
+
+            <!-- Pause -->
+            <section id="pause">
+                <div class="pauseUI">
+                    <div class="title">Paused</div>
+                    <div class="btn-group">
+                        <button id="restart" onclick="window.location.reload()">Restart</button>
+                        <button id="continue">Continue</button>
+                    </div>
+                </div>
+            </section>
+            <!-- End Pause -->
+
+            <!-- Game Over -->
+            <section id="gameOver">
+                <div class="gameOverUI">
+                    <div class="title">Game Over</div>
+                    <div id="result">
+                        <div id="nameRes">Name</div>
+                        <div id="timeRes">00:00</div>
+                        <div id="scoreRes">0</div>
+                        <button onclick="window.location.reload()">Restart</button>
+                    </div>
+                </div>
+            </section>
+            <!-- End Game Over -->
+
+
+            <!-- Gameplay -->
+            <section id="gameplay">
+                <div id="board">
+                    <div class="danger"></div>
+                    <div class="peluru" id="dArea"></div>
+                    <div class="peluru" id="fArea"></div>
+                    <div class="peluru" id="jArea"></div>
+                    <div class="peluru" id="kArea"></div>
+                    <div id="gates"></div>
+                    <div class="board board-d">
+                        <div class="btn btn-d">D</div>
+                    </div>
+                    <div class="board board-f">
+                        <div class="btn btn-f">F</div>
+                    </div>
+                    <div class="board board-j">
+                        <div class="btn btn-j">J</div>
+                    </div>
+                    <div class="board board-k">
+                        <div class="btn btn-k">K</div>
+                    </div>
+                </div>
+                <div class="statistic">
+                    <div id="player" class="stats">Player</div>
+                    <div id="time" class="stats">Time : 00 : 00</div>
+                    <div id="score" class="stats">Score : 0</div>
+                    <div id="fail" class="stats">Fail : 0</div>
+                    <div id="hint">>> ESC to Pause Game</div>
+                </div>
+            </section>
+            <!-- End Gameplay -->
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

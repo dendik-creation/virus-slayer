@@ -1,0 +1,372 @@
+*{
+    margin: 0;
+    padding: 0;
+    transition: all ease 0.3s;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+
+.container{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    background-color: #010101;
+    place-items: center;
+}
+
+#game{
+    width: 960px;
+    height: 600px; 
+    position: relative;  
+    border-radius: 8px;
+    background-color: #1c1c1c;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+#home{
+    color: white;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#home .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.title h3{
+    font-size: 2rem;
+}
+
+.instruction{
+    margin: 0 0 2em 0;
+}
+
+.instruction .inst{
+    font-weight: bold;
+    margin: 1em 0;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.username{
+    padding: 1em 1.3em;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgb(133, 121, 121);
+    background: none;
+    transition: all ease 0.1s;
+    width: 200px;
+    color: white;
+}
+
+.username:focus{
+    width: 250px;
+    color: white;
+    transition: all ease 0.1s;
+    outline: none;
+    border-bottom: 2px solid white;
+}
+
+.submit{
+    cursor: pointer;
+    width: 100%;
+    margin: 1em 0;
+    padding: .5em;
+    border-radius: 8px;
+    color: black;
+    background: #FDC57B;
+    border: none;
+}
+
+.submit:disabled{
+    background: #FDC57B;
+    color: white;
+    cursor: auto;
+    opacity: 0.4;
+}
+
+#countdown{
+    z-index: 10;
+    border-radius: 8px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#countdown .countTime{
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+    scale: 3;
+    opacity: 0;
+    animation: size 1000ms ease infinite 250ms;
+    transform: translateY(-40%);
+}
+
+@keyframes size {
+    50%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    75%{
+        transform: translateY(40%);
+        opacity: 0;
+    }
+}
+
+#gameplay{
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+#gameplay #board{
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    position: relative;
+}
+
+#board .board{
+    width: 100px;
+    height: 100%;
+    position: relative;
+    border: 1px solid white;
+    border-bottom: none;
+    border-top: none;
+}
+
+#board .board .btn{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 112px;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.btn-d, .btn-j{
+    background-color: purple;
+}
+.btn-f, .btn-k{
+    background-color: darkslategray;
+}
+
+#gameplay .statistic{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+#gameplay .statistic .stats{
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 1.3em;
+    width: 180px;
+}
+
+.statistic #player{
+    width: 100% !important;
+}
+
+.statistic #hint{
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    z-index: 12;
+}
+
+#virus, .danger, .peluru, #gates{
+    position: absolute;
+}
+
+#board #virus{
+    background-image: url(images/coronavirus-gaedba68d4_1280.png);
+    width: 75px;
+    background-size: cover;
+    height: 75px;
+    top: .4em;
+    transition: all linear;
+    left: calc(0% + 11px);
+}
+
+#board .danger{
+    width: 100%;
+    height: 160px;
+    bottom: 7em;
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+#board .peluru{
+    transition: none !important;
+    bottom: 7em;
+    width: 25%;
+    height: 150px;
+    background: linear-gradient(to top, rgba(255,255,255,0.6), rgba(255,255,255,0));
+}
+
+#dArea{
+    left: 0;
+}
+
+#fArea{
+    left: 25%;
+}
+#jArea{
+    left: 50%;
+}
+#kArea{
+    left: 75%;
+}
+
+
+#board #gates{
+    bottom: 7em;
+    background-color: #1c1c1c;
+    height: 15px;
+    width: 100%;
+}
+
+#pause{
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#pause .pauseUI{
+    border-radius: 8px;
+    width: 350px;
+    height: 300px;
+    background-color: #1c1c1c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes pauseGame {
+    0%{
+        opacity: 0;
+        transform: translateY(-40%);
+    }
+    75%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+@keyframes closePause {
+    0%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(40%);
+    }
+}
+
+.pauseUI .title{
+    font-size: 2em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+.pauseUI .btn-group{
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.pauseUI .btn-group #restart{
+    cursor: pointer;
+    padding: 1em 1.3em;
+    color: white;
+    background: red;
+    color: dark;
+    border: none;
+    border-radius: 8px;
+}
+
+.pauseUI .btn-group #continue{
+    cursor: pointer;
+    padding: 1em 1.3em;
+    color: black;
+    background: lightgreen;
+    color: dark;
+    border: none;
+    border-radius: 8px;
+}
+
+#gameOver{
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#gameOver .gameOverUI{
+    border-radius: 8px;
+    width: 350px;
+    height: 300px;
+    background-color: #1c1c1c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameOverUI .title{
+    font-size: 2em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+.gameOverUI #result{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gameOverUI button{
+    margin: 2em 0;
+    background: red;
+    border-radius: 8px;
+    padding: 1em 2em;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
