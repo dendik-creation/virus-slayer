@@ -14,4 +14,4 @@ Virus slayer is a simple game built using pure HTML, CSS & Javascript. I made th
 
 ## Demo
 
-Virus Slayer
+[Virus Slayer](https://dendik-creation.github.io/virus-slayer/)
